@@ -37,7 +37,7 @@ export const RegisterPage: React.FC = () => {
             S
           </div>
           <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Create Account</h1>
-          <p className="text-sm text-slate-600">Join Saaman to track household inventory</p>
+          <p className="text-sm text-slate-600">Join SamaanAI to track household inventory</p>
         </div>
 
         {error && (

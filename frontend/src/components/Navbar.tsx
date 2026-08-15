@@ -28,7 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenScanModal }) => {
                   S
                 </div>
                 <span className="font-extrabold text-xl text-slate-900 tracking-tight">
-                  Saaman
+                  SamaanAI
                 </span>
               </Link>
 

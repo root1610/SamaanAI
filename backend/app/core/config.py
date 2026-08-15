@@ -1,27 +1,27 @@
 import os
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
-
-    PROJECT_NAME: str = "Saaman API"
+    PROJECT_NAME: str = "SamaanAI API"
     VERSION: str = "1.0.0"
     API_V1_STR: str = ""
+    
+    SECRET_KEY: str = os.getenv("SECRET_KEY", "samaanai-secret-key-super-secure-change-in-production")
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  # 7 Days
+    
+    DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite:///./samaanai.db")
+    
+    UPLOAD_DIR: str = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "static", "uploads")
+    CORS_ORIGINS: list[str] = [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "http://localhost:5173",
+        "http://127.0.0.1:5173"
+    ]
 
-    SECRET_KEY: str = "saaman_secret_jwt_key_2026_super_secure_change_in_prod"
-    ALGORITHM: str = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  # 7 days
+    TELEGRAM_BOT_TOKEN: str = os.getenv("TELEGRAM_BOT_TOKEN", "")
 
-    # SQLite local zero-config database
-    DATABASE_URL: str = "sqlite:///./saaman.db"
-
-    # Static file uploads
-    UPLOAD_DIR: str = "static/uploads"
-
-    # AI Provider configuration (Optional LLM Vision API Keys)
-    GEMINI_API_KEY: str | None = None
-    OPENAI_API_KEY: str | None = None
+    class Config:
+        case_sensitive = True
 
 settings = Settings()
-
-os.makedirs(settings.UPLOAD_DIR, exist_ok=True)

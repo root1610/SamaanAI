@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowRight, AlertCircle, Package } from 'lucide-react';
+import { ArrowRight, AlertCircle } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export const LoginPage: React.FC = () => {
-  const [email, setEmail] = useState('demo@saaman.com');
+  const [email, setEmail] = useState('demo@samaanai.com');
   const [password, setPassword] = useState('demo123456');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -35,7 +35,7 @@ export const LoginPage: React.FC = () => {
           <div className="inline-flex w-12 h-12 rounded-xl bg-blue-600 items-center justify-center text-white font-black text-2xl mb-1 shadow-sm">
             S
           </div>
-          <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Sign in to Saaman</h1>
+          <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Sign in to SamaanAI</h1>
           <p className="text-sm text-slate-600">AI Household Inventory & Expiry Manager</p>
         </div>
 
@@ -92,7 +92,7 @@ export const LoginPage: React.FC = () => {
 
         {/* Demo Credentials Tip */}
         <div className="p-3 rounded-lg bg-blue-50 border border-blue-200 text-xs text-blue-800 text-center font-medium">
-          ⚡ <strong>Demo Account:</strong> demo@saaman.com / demo123456
+          ⚡ <strong>Demo Account:</strong> demo@samaanai.com / demo123456
         </div>
 
       </div>

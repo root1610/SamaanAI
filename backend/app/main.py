@@ -14,7 +14,7 @@ from app.api.notifications import router as notifications_router
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-    title="Saaman AI API",
+    title="SamaanAI API",
     description="Full-stack AI Household Inventory & Expiry Management API",
     version="1.0.0"
 )
@@ -42,7 +42,7 @@ app.include_router(notifications_router)
 @app.get("/")
 def root():
     return {
-        "message": "Welcome to Saaman AI API",
+        "message": "Welcome to SamaanAI API",
         "docs": "/docs",
         "version": "1.0.0"
     }
